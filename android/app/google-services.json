@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "342714257588",
+    "project_id": "appstore-b6e0f",
+    "storage_bucket": "appstore-b6e0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342714257588:android:84ce16e146dac6fa7c07e1",
+        "android_client_info": {
+          "package_name": "com.riccardodebellini.appstore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHSywYRL6oxbJBA6tIaRTZJSFnWzfrCCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
