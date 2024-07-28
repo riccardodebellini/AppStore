@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:app_store/discover.dart';
-import 'package:app_store/navigation.dart';
+import 'package:app_store/pages/discover.dart';
+import 'package:app_store/sys/firebase_options.dart';
+import 'package:app_store/sys/navigation.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:app_store/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,14 +14,12 @@ void main() async {
   );
 
   runApp(const MyApp());
-
 }
 
 runCommand() async {
-  print("Start");
-  final result = await Process.run('winget',
+  await Process.run('winget',
       ['upgrade', 'Python.Python.3.12']); // List files in current directory
-  print(result.stdout); // Output the command's output
+  // Output the command's output
 }
 
 class MyApp extends StatelessWidget {
@@ -32,9 +30,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'App Store',
       theme: ThemeData(
-        fontFamily: GoogleFonts.titilliumWeb().fontFamily,
+        fontFamily: GoogleFonts.inter().fontFamily,
         colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.green,
+            seedColor: Colors.cyan,
             brightness: MediaQuery.platformBrightnessOf(context)),
         useMaterial3: true,
       ),
@@ -51,8 +49,8 @@ class HomePage extends StatelessWidget {
     return const MainNavigation(
       pageData: [
         MainNavigationDest(
-            appBarTitle: "Scopri app e servizi",
-            text: "Scopri",
+            appBarTitle: "Home - Scopri app e servizi",
+            text: "Home",
             icon: Icon(Icons.interests_rounded),
             destination: DiscoverPage()),
         MainNavigationDest(
@@ -61,10 +59,10 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.devices_rounded),
             destination: Pag1()),
         MainNavigationDest(
-            appBarTitle: "Sviluppo",
-            text: "Dev",
-            icon: Icon(Icons.developer_mode_rounded),
-            destination: Pag1(),
+          appBarTitle: "Sviluppo",
+          text: "Dev",
+          icon: Icon(Icons.developer_mode_rounded),
+          destination: Pag2(),
         ),
       ],
     );
@@ -76,8 +74,11 @@ class Pag1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("1"),
+    return const Scaffold(
+      body: const ListTile(
+        title: Divider(),
+        subtitle: Text("Tutti i diritti riservati © 2024 Riccardo Debellini"),
+      ),
     );
   }
 }
@@ -87,19 +88,11 @@ class Pag2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("2"),
-    );
-  }
-}
-
-class Pag3 extends StatelessWidget {
-  const Pag3({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text("3"),
+    return const Scaffold(
+      body: const ListTile(
+        title: Divider(),
+        subtitle: Text("Tutti i diritti riservati © 2024 Riccardo Debellini"),
+      ),
     );
   }
 }
